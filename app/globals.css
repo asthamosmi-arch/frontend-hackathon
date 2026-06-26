@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forsythia:  #FFC801;
+  --nocturnal:  #114C5A;
+  --arctic:     #F1F6F4;
+  --mystic:     #D9E8E2;
+  --saffron:    #FF9932;
+  --oceanic:    #172B36;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--oceanic);
+  color: var(--arctic);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Micro-interactions: 150-200ms ease-out ── */
+.micro {
+  transition: all 175ms ease-out;
+}
+
+/* ── Structural reflows: 300-400ms ease-in-out ── */
+.reflow {
+  transition: all 350ms ease-in-out;
+}
+
+/* ── Accordion panel transition ── */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms ease-in-out, opacity 350ms ease-in-out;
+  opacity: 0;
+}
+.accordion-panel.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.accordion-inner { overflow: hidden; }
+
+/* ── Bento card hover ── */
+.bento-card {
+  transition: transform 175ms ease-out, box-shadow 175ms ease-out, border-color 175ms ease-out;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.bento-card.active {
+  border-color: var(--forsythia) !important;
+}
+
+/* ── Navbar scroll effect ── */
+.navbar-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Gradient text ── */
+.grad-text {
+  background: linear-gradient(135deg, var(--forsythia) 0%, var(--saffron) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Hero glow orb ── */
+.hero-orb {
+  background: radial-gradient(ellipse at center, rgba(255,200,1,0.15) 0%, transparent 70%);
+}
+
+/* ── Price text transitions ── */
+.price-value {
+  transition: opacity 150ms ease-out;
+}
+.price-value.fading { opacity: 0; }
+
+/* ── Toggle pill ── */
+.toggle-pill {
+  transition: transform 200ms ease-out;
+}
+
+/* ── Button hover ── */
+.btn-primary {
+  transition: transform 175ms ease-out, box-shadow 175ms ease-out, background 175ms ease-out;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255,200,1,0.35);
+}
+
+/* ── SVG icon color utility ── */
+.icon-forsythia path, .icon-forsythia circle, .icon-forsythia rect { stroke: var(--forsythia); }
+.icon-arctic path, .icon-arctic circle { stroke: var(--arctic); }
+
+/* ── FAQ hover ── */
+.faq-item {
+  transition: background 175ms ease-out, border-color 175ms ease-out;
+}
+.faq-item:hover { border-color: rgba(255,200,1,0.4); }
+
+/* ── Testimonial card ── */
+.testimonial-card {
+  transition: transform 175ms ease-out, box-shadow 175ms ease-out;
+}
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
